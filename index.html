@@ -105,7 +105,38 @@
             </p>
         </div>
     </header>
-    <script type="text/javascript" src="https://unpkg.com/dmego-home-page@latest/assets/js/main.js"></script>
-    <script type="text/javascript" src="./assets/json/images.json?cb=getBingImages"></script>
+    
+    <!-- APlayer -->
+    <div id="aplayer"></div>
+    
+    <!-- Panel -->
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/dmego-home-page@latest/assets/js/velocity.min.js"></script>
+    <script src="https://unpkg.com/dmego-home-page@latest/assets/js/vendors.js?v=202303"></script>
+    <script src="https://unpkg.com/dmego-home-page@latest/assets/js/scripts.js?v=202303"></script>
+    
+    <script>
+        // 创建 APlayer 实例并进行配置
+        var ap = new APlayer({
+            container: document.getElementById('aplayer'), // 容器元素的ID
+            autoplay: false, // 是否自动播放
+            loop: 'all', // 循环模式，可选值有 'all', 'one', 'none'
+            volume: 0.7, // 默认音量，范围从 0 到 1
+            preload: 'auto', // 预加载，可选值有 'none', 'metadata', 'auto'
+            audio: [
+                {
+                    name: '歌曲名称',
+                    artist: '艺术家',
+                    url: '音频文件的URL',
+                    cover: '封面图片的URL'
+                },
+                // 可以添加更多的音频对象
+            ]
+        });
+
+        // 将 APlayer 实例添加到网页中
+        document.getElementById('aplayer').appendChild(ap.container);
+    </script>
 </body>
 </html>
